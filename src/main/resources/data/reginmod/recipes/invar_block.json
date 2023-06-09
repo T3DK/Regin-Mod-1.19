@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "reginmod:invar_ingot"
+    }
+  },
+  "result": {
+    "item": "reginmod:invar_block"
+  }
+
+}
