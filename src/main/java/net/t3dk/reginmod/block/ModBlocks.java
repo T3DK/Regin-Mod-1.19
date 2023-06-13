@@ -23,6 +23,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> INVAR_BLOCK = registerBlock("invar_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
                     .strength(6f).requiresCorrectToolForDrops()), ModCreativeModeTab.REGIN_TAB);
+    public static final RegistryObject<Block> FIRE_BRICK_BLOCK = registerBlock("fire_brick_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(5f).requiresCorrectToolForDrops()), ModCreativeModeTab.REGIN_TAB);
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {

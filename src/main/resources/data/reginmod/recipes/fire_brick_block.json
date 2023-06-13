@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "reginmod:fire_brick"
+    }
+  },
+  "result": {
+    "item": "reginmod:fire_brick_block"
+  }
+
+}
