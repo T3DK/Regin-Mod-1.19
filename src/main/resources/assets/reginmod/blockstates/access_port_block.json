@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "reginmod:block/access_port_block" }
+  }
+}

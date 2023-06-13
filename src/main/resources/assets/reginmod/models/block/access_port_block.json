@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "reginmod:block/access_port_block"
+  }
+}

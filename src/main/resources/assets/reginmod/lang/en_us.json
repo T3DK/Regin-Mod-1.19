@@ -5,6 +5,8 @@
 
   "block.reginmod.invar_block": "Block of Invar",
   "block.reginmod.fire_brick_block": "Fire Brick Block",
+  "block.reginmod.access_port_block": "Access Port Block",
+  "block.reginmod.invar_beam": "Invar Beam",
 
   "itemGroup.regintab": "Regin"
 }
