@@ -7,6 +7,7 @@
   "block.reginmod.fire_brick_block": "Fire Brick Block",
   "block.reginmod.access_port_block": "Access Port Block",
   "block.reginmod.invar_beam": "Invar Beam",
+  "block.reginmod.fire_brick_channel": "Fire Brick Casting Channel",
 
   "itemGroup.regintab": "Regin"
 }

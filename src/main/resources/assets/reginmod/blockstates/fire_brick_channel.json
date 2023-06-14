@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "reginmod:block/fire_brick_channel"
+    },
+    "facing=south": {
+      "model": "reginmod:block/fire_brick_channel",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "reginmod:block/fire_brick_channel",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "reginmod:block/fire_brick_channel",
+      "y": 90
+    }
+  }
+}

@@ -12,6 +12,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.t3dk.reginmod.ReginMod;
 import net.t3dk.reginmod.block.custom.BeamBlock;
+import net.t3dk.reginmod.block.custom.ChannelBlock;
 import net.t3dk.reginmod.item.ModCreativeModeTab;
 import net.t3dk.reginmod.item.ModItems;
 
@@ -30,8 +31,12 @@ public class ModBlocks {
     public static final RegistryObject<Block> ACCESS_BRICK_BLOCK = registerBlock("access_port_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.PISTON)
                     .strength(5f).requiresCorrectToolForDrops()), ModCreativeModeTab.REGIN_TAB);
+
     public static final RegistryObject<Block> INVAR_BEAM = registerBlock("invar_beam",
             () -> new BeamBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(5f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.REGIN_TAB);
+    public static final RegistryObject<Block> FIRE_BRICK_CHANNEL = registerBlock("fire_brick_channel",
+            () -> new ChannelBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(5f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.REGIN_TAB);
 
 
