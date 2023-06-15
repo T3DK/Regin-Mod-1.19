@@ -4,8 +4,10 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CauldronBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -13,6 +15,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.t3dk.reginmod.ReginMod;
 import net.t3dk.reginmod.block.custom.BeamBlock;
 import net.t3dk.reginmod.block.custom.ChannelBlock;
+import net.t3dk.reginmod.block.custom.FoundryBlock;
 import net.t3dk.reginmod.item.ModCreativeModeTab;
 import net.t3dk.reginmod.item.ModItems;
 
@@ -39,6 +42,9 @@ public class ModBlocks {
             () -> new ChannelBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(5f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.REGIN_TAB);
 
+    public static final RegistryObject<Block> FOUNDRY = registerBlock("foundry",
+            () -> new FoundryBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(4f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.REGIN_TAB);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

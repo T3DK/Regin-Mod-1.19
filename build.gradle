@@ -1,8 +1,32 @@
-plugins {
-    id 'eclipse'
-    id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '5.1.+'
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net' }
+        mavenCentral()
+        maven {url 'https://maven.parchmentmc.org'}
+        maven {url 'https://repo.spongepowered.org/repository/maven-public/'}
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath 'org.parchmentmc:librarian:1.+'
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+    }
 }
+apply plugin: 'net.minecraftforge.gradle'
+// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+apply plugin: 'maven-publish'
+apply plugin: 'org.parchmentmc.librarian.forgegradle'
+apply plugin: 'org.spongepowered.mixin'
+apply plugin: 'eclipse'
+
+//plugins {
+//    id 'eclipse'
+//    id 'maven-publish'
+//    id 'net.minecraftforge.gradle' version '5.1.+'
+//    id 'org.spongepowered.mixin'
+//    id 'org.parchmentmc.librarian.forgegradle'
+//}
+
+//sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = 17
 
 version = '0.0.1-1.19'
 group = 'net.t3dk.reginmod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -119,6 +143,8 @@ repositories {
     // Put repositories for dependencies here
     // ForgeGradle automatically adds the Forge maven and Maven Central for you
 
+    maven {	name = "BlameJared";	url = "https://maven.blamejared.com/" }  // IE Maven Dependency
+
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
     // flatDir {
     //     dir 'libs'
@@ -135,6 +161,10 @@ dependencies {
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
     // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}") // Adds the full JEI mod as a runtime dependency
     // implementation fg.deobf("com.tterrag.registrate:Registrate:MC${mc_version}-${registrate_version}") // Adds registrate as a dependency
+
+    implementation fg.deobf("blusunrize.immersiveengineering:ImmersiveEngineering:1.19.2-9.2.2-165") // IE Dependency
+
+    //compile fg.deobf("blusunrize.immersiveengineering:ImmersiveEngineering:1.19.2-9.2.2-165")
 
     // Examples using mod jars from ./libs
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")

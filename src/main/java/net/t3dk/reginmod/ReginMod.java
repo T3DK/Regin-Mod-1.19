@@ -9,6 +9,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.t3dk.reginmod.block.ModBlocks;
+//import net.t3dk.reginmod.init.ModBlockEntities;
 import net.t3dk.reginmod.item.ModItems;
 import org.slf4j.Logger;
 
@@ -26,6 +27,7 @@ public class ReginMod
         //Register Item
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+//        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

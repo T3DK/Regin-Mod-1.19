@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "reginmod:access_port_block",
+    "reginmod:fire_brick_block",
+    "reginmod:fire_brick_channel",
+    "reginmod:foundry",
+    "reginmod:invar_beam",
+    "reginmod:invar_block"
+  ]
+}

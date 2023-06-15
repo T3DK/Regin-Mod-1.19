@@ -1,0 +1,271 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 16],
+	"textures": {
+		"2": "reginmod:block/foundry_textures",
+		"particle": "reginmod:block/foundry_textures"
+	},
+	"elements": [
+		{
+			"name": "foundry_insulation_west",
+			"from": [11, 2, 2],
+			"to": [14, 12, 11],
+			"faces": {
+				"north": {"uv": [0, 2, 1.5, 12], "texture": "#missing"},
+				"east": {"uv": [6, 2, 10.5, 12], "texture": "#missing"},
+				"south": {"uv": [9.5, 0, 11, 10], "texture": "#2"},
+				"west": {"uv": [6.5, 0, 11, 10], "texture": "#2"},
+				"up": {"uv": [4.5, 16, 0, 13], "rotation": 270, "texture": "#2"},
+				"down": {"uv": [9, 0, 4.5, 3], "rotation": 90, "texture": "#missing"}
+			}
+		},
+		{
+			"name": "foundry_insulation_east",
+			"from": [2, 2, 5],
+			"to": [5, 12, 14],
+			"faces": {
+				"north": {"uv": [0, 2, 1.5, 12], "texture": "#missing"},
+				"east": {"uv": [6.5, 0, 11, 10], "texture": "#2"},
+				"south": {"uv": [9.5, 0, 11, 10], "texture": "#2"},
+				"west": {"uv": [1.5, 2, 6, 12], "texture": "#missing"},
+				"up": {"uv": [4.5, 16, 0, 13], "rotation": 90, "texture": "#2"},
+				"down": {"uv": [9, 0, 4.5, 3], "rotation": 90, "texture": "#missing"}
+			}
+		},
+		{
+			"name": "foundry_insulation_north",
+			"from": [2, 2, 2],
+			"to": [11, 12, 5],
+			"faces": {
+				"north": {"uv": [1.5, 2, 6, 12], "texture": "#missing"},
+				"east": {"uv": [0, 2, 1.5, 12], "texture": "#missing"},
+				"south": {"uv": [6.5, 0, 11, 10], "texture": "#2"},
+				"west": {"uv": [9.5, 0, 11, 10], "texture": "#2"},
+				"up": {"uv": [4.5, 16, 0, 13], "rotation": 180, "texture": "#2"},
+				"down": {"uv": [12, 0, 7.5, 3], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "foundry_insulation_south",
+			"from": [5, 2, 11],
+			"to": [14, 12, 14],
+			"faces": {
+				"north": {"uv": [6.5, 0, 11, 10], "texture": "#2"},
+				"east": {"uv": [0, 2, 1.5, 12], "texture": "#missing"},
+				"south": {"uv": [9, 2, 13.5, 12], "texture": "#missing"},
+				"west": {"uv": [9.5, 0, 11, 10], "texture": "#2"},
+				"up": {"uv": [4.5, 16, 0, 13], "texture": "#2"},
+				"down": {"uv": [12, 0, 7.5, 3], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "foundry_wall_east",
+			"from": [14, 2, 2],
+			"to": [16, 13, 14],
+			"faces": {
+				"north": {"uv": [1, 0, 0, 11], "texture": "#2"},
+				"east": {"uv": [1.5, 1, 7.5, 12], "texture": "#2"},
+				"south": {"uv": [0, 0, 1, 11], "texture": "#2"},
+				"west": {"uv": [1.5, 0, 7.5, 5.5], "texture": "#2"},
+				"up": {"uv": [7.5, 2, 1.5, 0], "rotation": 90, "texture": "#2"},
+				"down": {"uv": [1.5, 1, 7.5, 0], "rotation": 90, "texture": "#2"}
+			}
+		},
+		{
+			"name": "foundry_wall_west",
+			"from": [0, 2, 2],
+			"to": [2, 13, 14],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 11], "texture": "#2"},
+				"east": {"uv": [1.5, 0, 7.5, 5.5], "texture": "#2"},
+				"south": {"uv": [1, 0, 0, 11], "texture": "#2"},
+				"west": {"uv": [1.5, 1, 7.5, 12], "texture": "#2"},
+				"up": {"uv": [7.5, 2, 1.5, 0], "rotation": 270, "texture": "#2"},
+				"down": {"uv": [1.5, 1, 7.5, 0], "rotation": 270, "texture": "#2"}
+			}
+		},
+		{
+			"name": "foundry_wall_north",
+			"from": [2, 2, 0],
+			"to": [14, 13, 2],
+			"faces": {
+				"north": {"uv": [1.5, 1, 7.5, 12], "texture": "#2"},
+				"east": {"uv": [0, 0, 1, 11], "texture": "#2"},
+				"south": {"uv": [1.5, 0, 7.5, 5.5], "texture": "#2"},
+				"west": {"uv": [1, 0, 0, 11], "texture": "#2"},
+				"up": {"uv": [7.5, 2, 1.5, 0], "texture": "#2"},
+				"down": {"uv": [7.5, 0, 1.5, 1], "texture": "#2"}
+			}
+		},
+		{
+			"name": "foundry_wall_south",
+			"from": [2, 2, 14],
+			"to": [14, 13, 16],
+			"faces": {
+				"north": {"uv": [1.5, 0, 7.5, 5.5], "texture": "#2"},
+				"east": {"uv": [1, 0, 0, 11], "texture": "#2"},
+				"south": {"uv": [1.5, 1, 7.5, 12], "texture": "#2"},
+				"west": {"uv": [0, 0, 1, 11], "texture": "#2"},
+				"up": {"uv": [7.5, 2, 1.5, 0], "rotation": 180, "texture": "#2"},
+				"down": {"uv": [7.5, 0, 1.5, 1], "rotation": 180, "texture": "#2"}
+			}
+		},
+		{
+			"name": "foundry_base",
+			"from": [2, 0, 2],
+			"to": [14, 2, 14],
+			"faces": {
+				"north": {"uv": [1.5, 10, 7.5, 12], "texture": "#2"},
+				"east": {"uv": [1.5, 10, 7.5, 12], "texture": "#2"},
+				"south": {"uv": [1.5, 10, 7.5, 12], "texture": "#2"},
+				"west": {"uv": [1.5, 10, 7.5, 12], "texture": "#2"},
+				"up": {"uv": [6.5, 4, 12.5, 16], "texture": "#2"},
+				"down": {"uv": [7.5, 0, 1.5, 12], "texture": "#2"}
+			}
+		},
+		{
+			"name": "foundry_fire",
+			"from": [5, 2, 5],
+			"to": [11, 3, 11],
+			"faces": {
+				"north": {"uv": [1.5, 10, 7.5, 12], "texture": "#2"},
+				"east": {"uv": [1.5, 10, 7.5, 12], "texture": "#2"},
+				"south": {"uv": [1.5, 10, 7.5, 12], "texture": "#2"},
+				"west": {"uv": [1.5, 10, 7.5, 12], "texture": "#2"},
+				"up": {"uv": [8, 10, 11, 16], "texture": "#2"},
+				"down": {"uv": [7.5, 0, 1.5, 12], "texture": "#2"}
+			}
+		},
+		{
+			"name": "crucible_wall_east",
+			"from": [10, 7, 6],
+			"to": [11, 13, 10],
+			"faces": {
+				"north": {"uv": [13, 0, 13.5, 6], "texture": "#2"},
+				"east": {"uv": [13, 0, 13.5, 6], "texture": "#2"},
+				"south": {"uv": [13, 0, 13.5, 6], "texture": "#2"},
+				"west": {"uv": [13, 0, 13.5, 6], "texture": "#2"},
+				"up": {"uv": [13, 0, 13.5, 6], "texture": "#2"},
+				"down": {"uv": [13, 0, 13.5, 6], "texture": "#2"}
+			}
+		},
+		{
+			"name": "crucible_wall_west",
+			"from": [5, 7, 6],
+			"to": [6, 13, 10],
+			"faces": {
+				"north": {"uv": [13, 0, 13.5, 6], "texture": "#2"},
+				"east": {"uv": [13, 0, 13.5, 6], "texture": "#2"},
+				"south": {"uv": [13, 0, 13.5, 6], "texture": "#2"},
+				"west": {"uv": [13, 0, 13.5, 6], "texture": "#2"},
+				"up": {"uv": [13, 0, 13.5, 6], "texture": "#2"},
+				"down": {"uv": [13, 0, 13.5, 6], "texture": "#2"}
+			}
+		},
+		{
+			"name": "crucible_wall_north",
+			"from": [6, 7, 5],
+			"to": [10, 13, 6],
+			"faces": {
+				"north": {"uv": [11.5, 0, 13.5, 6], "texture": "#2"},
+				"east": {"uv": [11.5, 0, 13.5, 6], "texture": "#2"},
+				"south": {"uv": [11.5, 0, 13.5, 6], "texture": "#2"},
+				"west": {"uv": [11.5, 0, 13.5, 6], "texture": "#2"},
+				"up": {"uv": [11.5, 0, 13.5, 6], "texture": "#2"},
+				"down": {"uv": [11.5, 0, 13.5, 6], "texture": "#2"}
+			}
+		},
+		{
+			"name": "crucible_wall_south",
+			"from": [6, 7, 10],
+			"to": [10, 13, 11],
+			"faces": {
+				"north": {"uv": [11.5, 0, 13.5, 6], "texture": "#2"},
+				"east": {"uv": [11.5, 0, 13.5, 6], "texture": "#2"},
+				"south": {"uv": [11.5, 0, 13.5, 6], "texture": "#2"},
+				"west": {"uv": [11.5, 0, 13.5, 6], "texture": "#2"},
+				"up": {"uv": [11.5, 0, 13.5, 6], "texture": "#2"},
+				"down": {"uv": [11.5, 0, 13.5, 6], "texture": "#2"}
+			}
+		},
+		{
+			"name": "crucible_base",
+			"from": [6, 6, 6],
+			"to": [10, 7, 10],
+			"faces": {
+				"north": {"uv": [11.5, 9, 13.5, 10], "texture": "#2"},
+				"east": {"uv": [11.5, 9, 13.5, 10], "texture": "#2"},
+				"south": {"uv": [11.5, 9, 13.5, 10], "texture": "#2"},
+				"west": {"uv": [11.5, 9, 13.5, 10], "texture": "#2"},
+				"up": {"uv": [11.5, 9, 13.5, 10], "texture": "#2"},
+				"down": {"uv": [11.5, 9, 13.5, 10], "texture": "#2"}
+			}
+		},
+		{
+			"name": "crucible_liquid",
+			"from": [6, 10, 6],
+			"to": [10, 11, 10],
+			"faces": {
+				"north": {"uv": [14, 0, 16, 1], "texture": "#2"},
+				"east": {"uv": [14, 0, 16, 1], "texture": "#2"},
+				"south": {"uv": [14, 0, 16, 1], "texture": "#2"},
+				"west": {"uv": [14, 0, 16, 1], "texture": "#2"},
+				"up": {"uv": [14, 0, 16, 4], "texture": "#2"},
+				"down": {"uv": [14, 0, 16, 4], "texture": "#2"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [45, 45, 0],
+			"translation": [0, 1.5, 0],
+			"scale": [0.26, 0.26, 0.26]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [45, 45, 0],
+			"translation": [0, 1.5, 0],
+			"scale": [0.26, 0.26, 0.26]
+		},
+		"firstperson_righthand": {
+			"translation": [-0.25, 0, 0.75],
+			"scale": [0.5, 0.5, 0.4]
+		},
+		"firstperson_lefthand": {
+			"translation": [-0.25, 0, 0.75],
+			"scale": [0.5, 0.5, 0.4]
+		},
+		"ground": {
+			"translation": [0, 2.5, 0],
+			"scale": [0.35, 0.35, 0.35]
+		},
+		"gui": {
+			"rotation": [25, 45, 0],
+			"translation": [0, 0.5, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"fixed": {
+			"scale": [0.75, 0.75, 0.75]
+		}
+	},
+	"groups": [
+		{
+			"name": "foundry_insulation_group",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1, 2, 3]
+		},
+		{
+			"name": "foundry_wall_group",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [4, 5, 6, 7, 8]
+		},
+		9,
+		{
+			"name": "crucible_group",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [10, 11, 12, 13, 14, 15]
+		}
+	]
+}
