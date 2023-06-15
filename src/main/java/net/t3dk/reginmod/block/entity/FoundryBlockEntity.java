@@ -41,7 +41,7 @@ public class FoundryBlockEntity extends BlockEntity implements MenuProvider {
     protected final ContainerData data;
     //Used for recipe
     private int progress = 0;
-    private int maxProgress = 100;
+    private int maxProgress = 78;
 
     public FoundryBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.FOUNDRY.get(), pos, state);
@@ -108,6 +108,7 @@ public class FoundryBlockEntity extends BlockEntity implements MenuProvider {
     @Override
     protected void saveAdditional(CompoundTag nbt) {
         nbt.put("inventory", itemHandler.serializeNBT());
+        nbt.putInt("foundry.progress", this.progress);
 
         super.saveAdditional(nbt);
     }
@@ -117,6 +118,7 @@ public class FoundryBlockEntity extends BlockEntity implements MenuProvider {
     public void load(CompoundTag nbt) {
         super.load(nbt);
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
+        progress = nbt.getInt("foundry.progress");
     }
 
     //Drops block inventory item contents when broken
@@ -141,10 +143,10 @@ public class FoundryBlockEntity extends BlockEntity implements MenuProvider {
 
             if(entity.progress >= entity.maxProgress) {
                 craftItem(entity);
-            } else {
-                entity.resetProgress();
-                setChanged(level,pos,state);
             }
+        } else {
+            entity.resetProgress();
+            setChanged(level, pos, state);
         }
     }
 
@@ -156,7 +158,7 @@ public class FoundryBlockEntity extends BlockEntity implements MenuProvider {
         if(hasRecipe(entity)) {
             //false is used to tell it to actually extract the item, instead of just faking it
             entity.itemHandler.extractItem(1,1,false);
-            entity.itemHandler.setStackInSlot(2, new ItemStack(ModItems.FIRE_CLAY.get(),
+            entity.itemHandler.setStackInSlot(2, new ItemStack(ModItems.FIRE_BRICK.get(),
                     entity.itemHandler.getStackInSlot(2).getCount() + 1));
 
             entity.resetProgress();
@@ -171,10 +173,10 @@ public class FoundryBlockEntity extends BlockEntity implements MenuProvider {
         }
 
         //Temp use of FIRE_BRICK, will need to be changed for all ores and their molten counterparts
-        boolean hasMetalInFirstSlot = entity.itemHandler.getStackInSlot(1).getItem() == ModItems.FIRE_BRICK.get();
+        boolean hasMetalInFirstSlot = entity.itemHandler.getStackInSlot(1).getItem() == ModItems.FIRE_CLAY.get();
 
         return hasMetalInFirstSlot && canInsertAmountIntoOutputSlot(inventory) &&
-                canInsertItemIntoOutputSlot(inventory, new ItemStack(ModItems.FIRE_CLAY.get(), 1));
+                canInsertItemIntoOutputSlot(inventory, new ItemStack(ModItems.FIRE_BRICK.get(), 1));
     }
 
     //Can only insert same type item, or different item if slot is empty
