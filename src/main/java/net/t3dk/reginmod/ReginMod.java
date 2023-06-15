@@ -1,6 +1,7 @@
 package net.t3dk.reginmod;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -10,7 +11,10 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.t3dk.reginmod.block.ModBlocks;
 //import net.t3dk.reginmod.init.ModBlockEntities;
+import net.t3dk.reginmod.block.entity.ModBlockEntities;
 import net.t3dk.reginmod.item.ModItems;
+import net.t3dk.reginmod.screen.FoundryScreen;
+import net.t3dk.reginmod.screen.ModMenuTypes;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -27,7 +31,9 @@ public class ReginMod
         //Register Item
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
-//        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -47,6 +53,7 @@ public class ReginMod
         public static void onClientSetup(FMLClientSetupEvent event)
         {
 
+            MenuScreens.register(ModMenuTypes.FOUNDRY_MENU.get(), FoundryScreen::new);
         }
     }
 }
