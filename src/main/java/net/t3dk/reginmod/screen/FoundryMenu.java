@@ -20,12 +20,14 @@ public class FoundryMenu extends AbstractContainerMenu {
     private final ContainerData data;
 
     public FoundryMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
+        //2 refers to the amount of data taken in, progress and maxProgress
         this(id, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
     }
 
     public FoundryMenu(int id, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.FOUNDRY_MENU.get(), id);
-        checkContainerSize(inv, 3);
+        //Number of slots for the inv being created
+        checkContainerSize(inv, 2);
         blockEntity = (FoundryBlockEntity) entity;
         this.level = inv.player.level;
         this.data = data;
@@ -35,9 +37,8 @@ public class FoundryMenu extends AbstractContainerMenu {
 
         //if entity can handle items, create slots
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, 0, 12, 12));
-            this.addSlot(new SlotItemHandler(handler, 1, 86, 15));
-            this.addSlot(new SlotItemHandler(handler, 2, 86, 60));
+            this.addSlot(new SlotItemHandler(handler, 0, 7, 17));
+            this.addSlot(new SlotItemHandler(handler, 1, 152, 17));
         });
 
         addDataSlots(data);
@@ -52,7 +53,7 @@ public class FoundryMenu extends AbstractContainerMenu {
     public int getScaledProgress() {
         int progress = this.data.get(0);
         int maxProgress = this.data.get(1);  // Max Progress
-        int progressArrowSize = 26; // This is the height in pixels of your arrow
+        int progressArrowSize = 22; // This is the height in pixels of your arrow
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
@@ -73,7 +74,7 @@ public class FoundryMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 3;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 2;  // must be the number of slots you have!
 
     @Override
     public ItemStack quickMoveStack(Player playerIn, int index) {
@@ -119,15 +120,16 @@ public class FoundryMenu extends AbstractContainerMenu {
     private void addPlayerInventory(Inventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 86 + i * 18));
+                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 66 + i * 18));
             }
         }
+
     }
 
     //Adds player hotbar to the menu so players can drag items in
     private void addPlayerHotbar(Inventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 135));
         }
     }
 }

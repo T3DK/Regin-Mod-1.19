@@ -11,7 +11,7 @@ import net.t3dk.reginmod.ReginMod;
 
 public class FoundryScreen extends AbstractContainerScreen<FoundryMenu> {
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation(ReginMod.MOD_ID,"textures/gui/gem_infusing_station_gui.png");
+            new ResourceLocation(ReginMod.MOD_ID,"textures/gui/foundry_gui.png");
 
     public FoundryScreen(FoundryMenu menu, Inventory inventory, Component component) {
         super(menu, inventory, component);
@@ -27,11 +27,11 @@ public class FoundryScreen extends AbstractContainerScreen<FoundryMenu> {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
-        int x = (width - imageWidth) / 2;
-        int y = (height - imageHeight) / 2;
+        int x = (width - (imageWidth + 7)) / 2;
+        int y = (height - (imageHeight - 12)) / 2;
 
         //renders the texture
-        this.blit(stack, x, y, 0, 0, imageWidth, imageHeight);
+        this.blit(stack, x, y, 0, 0, (imageWidth + 7), (imageHeight - 12));
 
         renderProgressArrow(stack, x, y);
     }
@@ -42,7 +42,7 @@ public class FoundryScreen extends AbstractContainerScreen<FoundryMenu> {
             //Goes to the arrow position (x and y)
             //Draws the arrow (at pos 176 0 on the texturesheet
             //width is 8, progress determines how much of the arrow to draw
-            blit(stack, x + 105, y + 33, 176, 0, 8, menu.getScaledProgress());
+            blit(stack, x + 35, y + 9, 183, 50, 3, menu.getScaledProgress());
         }
     }
 

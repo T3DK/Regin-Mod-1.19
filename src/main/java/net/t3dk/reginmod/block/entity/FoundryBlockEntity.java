@@ -28,7 +28,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class FoundryBlockEntity extends BlockEntity implements MenuProvider {
-    private final ItemStackHandler itemHandler = new ItemStackHandler(3) {
+    private final ItemStackHandler itemHandler = new ItemStackHandler(2) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
@@ -41,7 +41,7 @@ public class FoundryBlockEntity extends BlockEntity implements MenuProvider {
     protected final ContainerData data;
     //Used for recipe
     private int progress = 0;
-    private int maxProgress = 78;
+    private int maxProgress = 100;
 
     public FoundryBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.FOUNDRY.get(), pos, state);
@@ -64,6 +64,7 @@ public class FoundryBlockEntity extends BlockEntity implements MenuProvider {
                 }
             }
 
+            //How many variables are saved to the container, in this case, progress and max progress
             @Override
             public int getCount() {
                 return 2;
@@ -157,9 +158,9 @@ public class FoundryBlockEntity extends BlockEntity implements MenuProvider {
     private static void craftItem(FoundryBlockEntity entity) {
         if(hasRecipe(entity)) {
             //false is used to tell it to actually extract the item, instead of just faking it
-            entity.itemHandler.extractItem(1,1,false);
-            entity.itemHandler.setStackInSlot(2, new ItemStack(ModItems.FIRE_BRICK.get(),
-                    entity.itemHandler.getStackInSlot(2).getCount() + 1));
+            entity.itemHandler.extractItem(0,1,false);
+            entity.itemHandler.setStackInSlot(1, new ItemStack(ModItems.FIRE_BRICK.get(),
+                    entity.itemHandler.getStackInSlot(1).getCount() + 1));
 
             entity.resetProgress();
         }
@@ -172,8 +173,8 @@ public class FoundryBlockEntity extends BlockEntity implements MenuProvider {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
 
-        //Temp use of FIRE_BRICK, will need to be changed for all ores and their molten counterparts
-        boolean hasMetalInFirstSlot = entity.itemHandler.getStackInSlot(1).getItem() == ModItems.FIRE_CLAY.get();
+        //Temp use of FIRE_CLAY, will need to be changed for all ores and their molten counterparts
+        boolean hasMetalInFirstSlot = entity.itemHandler.getStackInSlot(0).getItem() == ModItems.FIRE_CLAY.get();
 
         return hasMetalInFirstSlot && canInsertAmountIntoOutputSlot(inventory) &&
                 canInsertItemIntoOutputSlot(inventory, new ItemStack(ModItems.FIRE_BRICK.get(), 1));
@@ -181,11 +182,11 @@ public class FoundryBlockEntity extends BlockEntity implements MenuProvider {
 
     //Can only insert same type item, or different item if slot is empty
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack stack) {
-        return inventory.getItem(2).getItem() == stack.getItem() || inventory.getItem(2).isEmpty();
+        return inventory.getItem(1).getItem() == stack.getItem() || inventory.getItem(1).isEmpty();
     }
 
     //Can only insert up to 64
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
-        return inventory.getItem(2).getMaxStackSize() > inventory.getItem(2).getCount();
+        return inventory.getItem(1).getMaxStackSize() > inventory.getItem(1).getCount();
     }
 }
