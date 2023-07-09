@@ -1,0 +1,11 @@
+{
+  "type": "reginmod:metal_melting",
+  "ingredients": [
+    {
+      "item": "reginmod:invar_block"
+    }
+  ],
+  "output": {
+    "item": "reginmod:invar_ingot"
+  }
+}

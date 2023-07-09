@@ -1,0 +1,11 @@
+{
+  "type": "reginmod:metal_melting",
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "output": {
+    "item": "minecraft:charcoal"
+  }
+}

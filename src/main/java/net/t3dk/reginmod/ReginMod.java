@@ -13,6 +13,7 @@ import net.t3dk.reginmod.block.ModBlocks;
 //import net.t3dk.reginmod.init.ModBlockEntities;
 import net.t3dk.reginmod.block.entity.ModBlockEntities;
 import net.t3dk.reginmod.item.ModItems;
+import net.t3dk.reginmod.recipe.ModRecipes;
 import net.t3dk.reginmod.screen.FoundryScreen;
 import net.t3dk.reginmod.screen.ModMenuTypes;
 import org.slf4j.Logger;
@@ -34,6 +35,9 @@ public class ReginMod
 
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
+
+        ModRecipes.register(modEventBus);
+
 
         modEventBus.addListener(this::commonSetup);
 

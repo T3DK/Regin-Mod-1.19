@@ -1,5 +1,6 @@
 package net.t3dk.reginmod.screen;
 
+import net.minecraft.client.gui.screens.inventory.ContainerScreen;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
@@ -123,13 +124,12 @@ public class FoundryMenu extends AbstractContainerMenu {
                 this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 66 + i * 18));
             }
         }
-
     }
 
     //Adds player hotbar to the menu so players can drag items in
     private void addPlayerHotbar(Inventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 135));
+            this.addSlot(new Slot(playerInventory, i, 9 + i * 18, 135));
         }
     }
 }

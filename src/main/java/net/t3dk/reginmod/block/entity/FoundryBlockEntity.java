@@ -23,9 +23,13 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.t3dk.reginmod.ReginMod;
 import net.t3dk.reginmod.item.ModItems;
+import net.t3dk.reginmod.recipe.FoundryRecipe;
 import net.t3dk.reginmod.screen.FoundryMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import javax.swing.text.html.Option;
+import java.util.Optional;
 
 public class FoundryBlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(2) {
@@ -156,28 +160,42 @@ public class FoundryBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private static void craftItem(FoundryBlockEntity entity) {
-        if(hasRecipe(entity)) {
-            //false is used to tell it to actually extract the item, instead of just faking it
-            entity.itemHandler.extractItem(0,1,false);
-            entity.itemHandler.setStackInSlot(1, new ItemStack(ModItems.FIRE_BRICK.get(),
-                    entity.itemHandler.getStackInSlot(1).getCount() + 1));
+        Level level = entity.level;
 
-            entity.resetProgress();
-        }
-    }
-
-    private static boolean hasRecipe(FoundryBlockEntity entity) {
         //Makes a simple inventory
         SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
         for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
 
-        //Temp use of FIRE_CLAY, will need to be changed for all ores and their molten counterparts
-        boolean hasMetalInFirstSlot = entity.itemHandler.getStackInSlot(0).getItem() == ModItems.FIRE_CLAY.get();
+        Optional<FoundryRecipe> recipe = level.getRecipeManager().getRecipeFor(FoundryRecipe.Type.INSTANCE, inventory, level);
 
-        return hasMetalInFirstSlot && canInsertAmountIntoOutputSlot(inventory) &&
-                canInsertItemIntoOutputSlot(inventory, new ItemStack(ModItems.FIRE_BRICK.get(), 1));
+        if(hasRecipe(entity)) {
+            //false is used to tell it to actually extract the item, instead of just faking it
+            entity.itemHandler.extractItem(0,1,false);
+            entity.itemHandler.setStackInSlot(1, new ItemStack(recipe.get().getResultItem().getItem(),
+                    entity.itemHandler.getStackInSlot(1).getCount() + 1));
+            //Can change the line above to
+            // recipe.get().getResultItem().getCount()
+            //To change output amount
+
+            entity.resetProgress();
+        }
+    }
+
+    private static boolean hasRecipe(FoundryBlockEntity entity) {
+        Level level = entity.level;
+
+        //Makes a simple inventory
+        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
+        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
+            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
+        }
+
+        Optional<FoundryRecipe> recipe = level.getRecipeManager().getRecipeFor(FoundryRecipe.Type.INSTANCE, inventory, level);
+
+        return recipe.isPresent() && canInsertAmountIntoOutputSlot(inventory) &&
+                canInsertItemIntoOutputSlot(inventory, recipe.get().getResultItem());
     }
 
     //Can only insert same type item, or different item if slot is empty

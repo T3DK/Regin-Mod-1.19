@@ -22,6 +22,12 @@ public class FoundryScreen extends AbstractContainerScreen<FoundryMenu> {
         super.init();
     }
 
+    //Override the Screen method for getting the title and return null instead
+    @Override
+    public Component getTitle() {
+        return null;
+    }
+
     @Override
     protected void renderBg(PoseStack stack, float partialTick, int mouseX, int mouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
