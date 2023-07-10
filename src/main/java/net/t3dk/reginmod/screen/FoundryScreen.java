@@ -23,10 +23,11 @@ public class FoundryScreen extends AbstractContainerScreen<FoundryMenu> {
     }
 
     //Override the Screen method for getting the title and return null instead
-    @Override
-    public Component getTitle() {
-        return null;
-    }
+    //currently doesnt work, need to figure out what to null that isnt this
+//    @Override
+//    public Component getTitle() {
+//        return null;
+//    }
 
     @Override
     protected void renderBg(PoseStack stack, float partialTick, int mouseX, int mouseY) {
@@ -57,5 +58,10 @@ public class FoundryScreen extends AbstractContainerScreen<FoundryMenu> {
         renderBackground(stack);
         super.render(stack, mouseX, mouseY, delta);
         renderTooltip(stack, mouseX, mouseY);
+    }
+
+    @Override
+    protected void renderLabels(PoseStack pPoseStack, int pMouseX, int pMouseY) {
+        //Override method to remove labels
     }
 }
